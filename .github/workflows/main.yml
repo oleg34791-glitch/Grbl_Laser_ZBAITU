@@ -1,0 +1,19 @@
+name: PlatformIO Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: PlatformIO Build
+      uses: docker://ghcr.io/platformio/platformio-core
+      with:
+        args: run
